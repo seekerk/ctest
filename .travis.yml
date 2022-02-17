@@ -1,8 +1,7 @@
 os: linux
 dist: xenial
 
-language:
-  - cpp
+language: c++
 
 before_install:
   - pip install --user cpp-coveralls
@@ -12,9 +11,9 @@ addons:
     organization: "seekerk-github"
 
 script:
-  - qmake
+  - cmake .
   - make
-  - ./tests/tests
+  - make test
 
 after_success:
   - coveralls --root . -E ".*external.*" -E ".*tests.*"
