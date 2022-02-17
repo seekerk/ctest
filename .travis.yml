@@ -13,7 +13,7 @@ addons:
 script:
   - cmake .
   - make
-  - make test
+  - ctest --verbose
 
 after_success:
   - coveralls --root . -E ".*external.*" -E ".*tests.*" -E ".*CMakeFiles.*"
