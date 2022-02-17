@@ -16,7 +16,7 @@ script:
   - make test
 
 after_success:
-  - coveralls --root . -E ".*external.*" -E ".*tests.*"
+  - coveralls --root . -E ".*external.*" -E ".*tests.*" -E ".*CMakeFiles.*"
   - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
   - sonar-scanner
 
