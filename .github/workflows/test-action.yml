@@ -1,0 +1,16 @@
+name: CI/CD GitHub Actions
+on: [push]
+jobs:
+  gtest-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: git submodule init
+      - run: git submodule update
+      - run: pip install --user cpp-coveralls
+      - run: cmake .
+      - run: make
+      - run: ./tests/tests
+
+      - name: Coveralls
+        run: coveralls -t ${{ secrets.coveralls_token }} --root . -E ".*external.*" -E ".*tests.*"
