@@ -10,7 +10,7 @@ jobs:
       - run: pip install --user cpp-coveralls
       - run: cmake .
       - run: make
-      - run: ./tests/tests
+      - run: make test
 
       - name: Coveralls
         run: coveralls -t ${{ secrets.coveralls_token }} --root . -E ".*external.*" -E ".*tests.*"
