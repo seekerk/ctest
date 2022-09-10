@@ -16,4 +16,4 @@ endif(NOT gtest_FOUND)
 
 add_subdirectory(tests)
 enable_testing()
-add_test(NAME gtest_tests COMMAND tests/ctest-tests --gtest_output=xml:./ctest-tests.xml --rerun-failed --output-on-failure)
+add_test(NAME gtest_tests COMMAND tests/ctest-tests --gtest_output=xml:./ctest-tests.xml)
