@@ -12,7 +12,7 @@ jobs:
       - run: pip install --user cpp-coveralls
       - run: cmake .
       - run: make
-      - run: make test
+      - run: make test --rerun-failed --output-on-failure
 
       - name: Coveralls
         run: coveralls -t ${{ secrets.coveralls_token }} --root . -E ".*external.*" -E ".*tests.*" -E ".*CMakeFiles.*"
